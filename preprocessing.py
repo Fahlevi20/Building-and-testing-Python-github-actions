@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 
 boston = load_boston()
 data = pd.DataFrame(boston.data, columns=boston.feature_names)
-data = ['PRICE'] = boston.target
+data['PRICE'] = boston.target
 
 X = data.drop("PRICE", axis=1)
 y = data["PRICE"]
