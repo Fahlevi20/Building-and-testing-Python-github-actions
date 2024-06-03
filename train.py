@@ -6,6 +6,6 @@ import joblib
 X_train,X_test,y_train,y_test=process_data()
 
 model = LinearRegression()
-model.fit(process_data.X_train, process_data.y_train)
+model.fit(X_train, y_train)
 
 joblib.dump(model,"model.pkl")
