@@ -29,8 +29,11 @@ jobs:
       - name: Preprocess Data
         run: |
           python preprocessing.py
-
-      - name: Deploy Model (Optional)
-        if: success()
+      - name: Train Data
         run: |
-          python save_model.py
+          python train.py
+
+      # - name: Deploy Model (Optional)
+      #   if: success()
+      #   run: |
+      #     python save_model.py
