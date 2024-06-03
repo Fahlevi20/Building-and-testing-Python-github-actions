@@ -36,11 +36,9 @@ jobs:
         run: |
           python evaluate.py
       - name: Commit and Push Model
-        if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-        run: |
-          python evaluate.py
+        run: |        
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add model.pkl
