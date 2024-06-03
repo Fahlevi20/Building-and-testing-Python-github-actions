@@ -12,7 +12,7 @@ data = pd.DataFrame(boston.data, columns=boston.feature_names)
 data = ['PRICE'] = boston.target
 
 X = data.drop("PRICE", axis=1)
-y = data["PRICE")
+y = data["PRICE"]
 
 X_train,X_test,y_train,y_test = train_test_split(X,y, random_state=42)
 
