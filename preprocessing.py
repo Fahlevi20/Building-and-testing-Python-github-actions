@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
 housing = fetch_california_housing()
-data = pd.DataFrame(housing.data, columns=boston.feature_names)
+data = pd.DataFrame(housing.data, columns=housing.feature_names)
 data['PRICE'] = housing.target
 
 X = data.drop("PRICE", axis=1)
