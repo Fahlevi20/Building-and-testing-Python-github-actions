@@ -35,7 +35,17 @@ jobs:
       - name: Evaluate Result
         run: |
           python evaluate.py
-
+      - name: Commit and Push Model
+        if: success()
+        run: |
+          python evaluate.py
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add model.pkl
+          git commit -m "Add trained model to repository"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Deploy Model (Optional)
       #   if: success()
       #   run: |
