@@ -32,6 +32,9 @@ jobs:
       - name: Train Data
         run: |
           python train.py
+      - name: Evaluate Result
+        run: |
+          python evaluate.py
 
       # - name: Deploy Model (Optional)
       #   if: success()
