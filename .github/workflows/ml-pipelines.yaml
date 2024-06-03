@@ -28,21 +28,17 @@ jobs:
 
       - name: Preprocess Data
         run: |
-          source venv/bin/activate
           python preprocess.py
 
       - name: Train Model
         run: |
-          source venv/bin/activate
           python train.py
 
       - name: Evaluate Model
         run: |
-          source venv/bin/activate
           python evaluate.py
 
       - name: Deploy Model (Optional)
         if: success()
         run: |
-          source venv/bin/activate
-          python deploy.py
+          python save_model.py
