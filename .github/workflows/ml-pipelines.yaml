@@ -28,7 +28,7 @@ jobs:
 
       - name: Preprocess Data
         run: |
-          python preprocess.py
+          python preprocessing.py
 
       - name: Deploy Model (Optional)
         if: success()
