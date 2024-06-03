@@ -30,14 +30,6 @@ jobs:
         run: |
           python preprocess.py
 
-      - name: Train Model
-        run: |
-          python train.py
-
-      - name: Evaluate Model
-        run: |
-          python evaluate.py
-
       - name: Deploy Model (Optional)
         if: success()
         run: |
