@@ -21,3 +21,5 @@ def process_data():
   scaler = StandardScaler()
   X_train = scaler.fit_transform(X_train)
   X_test=scaler.fit_transform(X_test)
+
+  return X_train,X_test,y_train,y_test
