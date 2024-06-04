@@ -39,7 +39,7 @@ jobs:
           python evaluate.py
           echo "## Evaluation Results" > report.md
           cat evaluation_result.txt >> report.md
-          cml-send-comment report.md
+          cml send-comment report.md
       # - name: Save Checkpoint and Model
       #   run: |
       #     git config --global user.name 'github-actions'
