@@ -1,7 +1,7 @@
 from preprocessing import process_data
 import joblib
 from sklearn.metrics import mean_squared_error, r2_score, root_mean_squared_error
-
+import numpy as np
 X_train,X_test,y_train,y_test = process_data()
 model = joblib.load("model.pkl")
 
