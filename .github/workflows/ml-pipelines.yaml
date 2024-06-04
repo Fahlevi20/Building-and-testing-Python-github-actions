@@ -35,6 +35,15 @@ jobs:
       - name: Evaluate Result
         run: |
           python evaluate.py
+      - name: Save Checkpoint and Model
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add processed_data.pkl model.pkl
+          git commit -m "Save processed data and model"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       # - name: Deploy Model (Optional)
       #   if: success()
       #   run: |
