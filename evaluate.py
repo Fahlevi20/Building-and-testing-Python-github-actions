@@ -6,10 +6,10 @@ X_train,X_test,y_train,y_test = process_data()
 model = joblib.load("model.pkl")
 
 y_pred=model.predict(X_test)
-print(y_pred)
 mse = mean_squared_error(y_test,y_pred)
-print(mse)
 r_score = r2_score(y_test,y_pred)
-print(r_score)
-rmse = root_mean_squared_error(y_test,y_pred)
-print(rmse)
+rmse = np.sqrt(mean_squared_error(y_test,y_pred))
+print(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
+
+with open('metrics.txt','w') as outfile:
+  outfile.write(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
