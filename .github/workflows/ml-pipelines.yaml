@@ -39,15 +39,15 @@ jobs:
           python evaluate.py
           echo "## Evaluation Results" > report.md
           cat evaluation_result.txt >> report.md
-          cml comment create report.md
+          # cml comment create report.md
 
-      # - name: Save Checkpoint and Model
-      #   run: |
-      #     git config --global user.name 'github-actions'
-      #     git config --global user.email 'github-actions@github.com'
-      #     git add .
-      #     git commit -m "Save model and report"
-      #     git push
+      - name: Save Checkpoint and Model
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add model.pickle report.md
+          git commit -m "Save model and report"
+          git push
         
       # - name: Deploy Model (Optional)
       #   if: success()
