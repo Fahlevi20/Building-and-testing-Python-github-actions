@@ -39,8 +39,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add processed_data.pkl model.pkl
-          git commit -m "Save processed data and model"
+          git add model.pkl
+          git commit -m "Save model"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
