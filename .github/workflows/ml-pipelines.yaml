@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -37,15 +39,15 @@ jobs:
           python evaluate.py
           echo "## Evaluation Results" > report.md
           cat evaluation_result.txt >> report.md
-      - name: Save Checkpoint and Model
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add .
-          git commit -m "Save model and report"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          cml-send-comment report.md
+      # - name: Save Checkpoint and Model
+      #   run: |
+      #     git config --global user.name 'github-actions'
+      #     git config --global user.email 'github-actions@github.com'
+      #     git add .
+      #     git commit -m "Save model and report"
+      #     git push
+        
       # - name: Deploy Model (Optional)
       #   if: success()
       #   run: |
