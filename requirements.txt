@@ -1,3 +1,5 @@
+jupyterlab
+nbclient
 numpy
 pandas
 scikit-learn
