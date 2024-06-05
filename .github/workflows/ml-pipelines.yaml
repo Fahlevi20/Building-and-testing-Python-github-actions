@@ -40,14 +40,18 @@ jobs:
           echo "## Evaluation Results" > report.md
           cat evaluation_result.txt >> report.md
           # cml comment create report.md
-
-      - name: Save Checkpoint and Model
+      - name: run jupyter notebook
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add model.pkl report.md
-          git commit -m "Save model and report"
-          git push
+          jupyter execute CI_CD_for_Machine_Learning_github_Actions.ipynb
+        shell: bash
+
+      # - name: Save Checkpoint and Model
+      #   run: |
+      #     git config --global user.name 'github-actions'
+      #     git config --global user.email 'github-actions@github.com'
+      #     git add model.pkl report.md
+      #     git commit -m "Save model and report"
+      #     git push
         
       # - name: Deploy Model (Optional)
       #   if: success()
