@@ -9,7 +9,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 housing = fetch_california_housing()
 data = pd.DataFrame(housing.data, columns=housing.feature_names)
