@@ -7,6 +7,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 housing = fetch_california_housing()
 data = pd.DataFrame(housing.data, columns=housing.feature_names)
@@ -22,6 +25,7 @@ def EDA(dataset):
   print("=============================================================")
   print("\nDescribe of data:", dataset.describe())
   print("=============================================================")
+  print(sns.heatmap(dataset.corr(), annot=True))
 
   return dataset.head()
 
