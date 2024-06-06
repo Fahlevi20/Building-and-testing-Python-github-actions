@@ -39,7 +39,7 @@ print(df_cleaned)
 print(f"Number of outliers found: {outliers.shape[0]}")
 
 X_cleaned = df_cleaned.drop(columns=['PRICE']).values
-y_cleaned = df_cleaned['PRICE'].values]
+y_cleaned = df_cleaned['PRICE'].values
 
 print("before clean", df.shape[0])
 print("after clean", df_cleaned.shape[0])
