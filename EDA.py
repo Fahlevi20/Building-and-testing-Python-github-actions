@@ -8,7 +8,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
+housing = fetch_california_housing()
+data = pd.DataFrame(housing.data, columns=housing.feature_names)
+data['PRICE'] = housing.target
 def EDA(dataset):
+  
   print("================= Exploratory Data Analysis =================")
   print("\n5 rows dataset:", dataset.head())
   print("=============================================================")
