@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 housing = fetch_california_housing()
 data = pd.DataFrame(housing.data, columns=housing.feature_names)
 data['PRICE'] = housing.target
-X = data.drop(columns=['PRICE']).values
-y = data['PRICE'].values]
+X = data.drop(columns=['PRICE'])
+y = data['PRICE']
 import pandas as pd
 
 def identify_outliers_columns(df):
