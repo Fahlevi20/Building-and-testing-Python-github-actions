@@ -98,13 +98,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: clean-outliers
+      - name: clean-outliers-and-evaluate-result-new-model
         run: |
-          python cleaning_outliers.py
-      - name: training-new-data
-        run: |
-          python evaluate_new_cleaned.py     
-        
+          python cleaning_outliers.py  
       # - name: Save Report
       #   run: |
       #     git config --global user.name 'github-actions'
