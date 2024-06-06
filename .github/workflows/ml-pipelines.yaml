@@ -43,10 +43,10 @@ jobs:
           echo "## Evaluation Results" > report.md
           cat evaluation_result.txt >> report.md
           # cml comment create report.md
-      - name: run jupyter notebook
-        run: |
-          jupyter execute CI_CD_for_Machine_Learning_github_Actions.ipynb
-        shell: bash
+      # - name: run jupyter notebook
+      #   run: |
+      #     jupyter execute CI_CD_for_Machine_Learning_github_Actions.ipynb
+      #   shell: bash
 
       # - name: Save Checkpoint and Model
       #   run: |
