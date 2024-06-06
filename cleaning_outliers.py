@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 housing = fetch_california_housing()
 data = pd.DataFrame(housing.data, columns=housing.feature_names)
 data['PRICE'] = housing.target
+X = data.drop(columns=['PRICE']).values
+y = data['PRICE'].values]
 import pandas as pd
 
 def identify_outliers_columns(df):
@@ -37,7 +39,13 @@ print(df_cleaned)
 print(f"Number of outliers found: {outliers.shape[0]}")
 
 X_cleaned = df_cleaned.drop(columns=['PRICE']).values
-y_cleaned = df_cleaned['PRICE'].values
+y_cleaned = df_cleaned['PRICE'].values]
+
+print("before clean", df.shape[0])
+print("after clean", df_cleaned.shape[0])
+print("before clean", X.shape[0])
+print("after clean", X_cleaned.shape[0])
+
 #training data outliers cleaned
 X_train_new,X_test_new,y_train_new,y_test_new = train_test_split(X_cleaned,y_cleaned, random_state=42)
 
@@ -69,7 +77,3 @@ print(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.
 
 with open('metrics.txt','w') as outfile:
   outfile.write(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
-print("before clean", df.shape[0])
-print("after clean", df_cleaned.shape[0])
-print("before clean", X.shape[0])
-print("after clean", X_cleaned.shape[0])
