@@ -100,7 +100,11 @@ jobs:
 
       - name: clean-outliers
         run: |
-          cleaning_outliers.py
+          python cleaning_outliers.py
+      - name: training-new-data
+        run: |
+          python evaluate_new_cleaned.py     
+        
       # - name: Save Report
       #   run: |
       #     git config --global user.name 'github-actions'
