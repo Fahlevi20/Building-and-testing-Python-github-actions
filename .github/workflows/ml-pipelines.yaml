@@ -36,13 +36,13 @@ jobs:
         run: |
           python preprocessing.py
 
-      - name: Save Preprocessed Data
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add preprocessed_data.pkl
-          git commit -m "Save preprocessed data"
-          git push
+      # - name: Save Preprocessed Data
+      #   run: |
+      #     git config --global user.name 'github-actions'
+      #     git config --global user.email 'github-actions@github.com'
+      #     git add preprocessed_data.pkl
+      #     git commit -m "Save preprocessed data"
+      #     git push
 
   train-data:
     runs-on: ubuntu-latest
@@ -68,13 +68,13 @@ jobs:
         run: |
           python train.py
 
-      - name: Save Model
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add model.pkl
-          git commit -m "Save trained model"
-          git push
+      # - name: Save Model
+      #   run: |
+      #     git config --global user.name 'github-actions'
+      #     git config --global user.email 'github-actions@github.com'
+      #     git add model.pkl
+      #     git commit -m "Save trained model"
+      #     git push
 
   evaluate-results:
     runs-on: ubuntu-latest
