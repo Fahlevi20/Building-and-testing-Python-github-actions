@@ -62,7 +62,3 @@ model_new = LinearRegression()
 model_new.fit(X_train_new, y_train_new)
 
 joblib.dump(model_new,"model_new.pkl")
-print(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
-
-with open('metrics.txt','w') as outfile:
-  outfile.write(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
