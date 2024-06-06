@@ -24,7 +24,8 @@ def EDA(dataset):
   print("=============================================================")
   print("\nDescribe of data:", dataset.describe())
   print("=============================================================")
-  print(sns.heatmap(dataset.corr(), annot=True))
+  sns.heatmap(dataset.corr(), annot=True)
+  plt.show()
 
   return dataset.head()
 
