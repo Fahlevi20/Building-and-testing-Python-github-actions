@@ -38,6 +38,37 @@ print(f"Number of outliers found: {outliers.shape[0]}")
 
 X_cleaned = df_cleaned.drop(columns=['PRICE']).values
 y_cleaned = df_cleaned['PRICE'].values
+#training data outliers cleaned
+X_train_new,X_test_new,y_train_new,y_test_new = train_test_split(X_cleaned,y_cleaned, random_state=42)
+
+scaler = StandardScaler()
+X_train_new = scaler.fit_transform(X_train_new)
+X_test_new=scaler.fit_transform(X_test_new)
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+import joblib
+
+model_new = LinearRegression()
+model_new.fit(X_train_new, y_train_new)
+
+joblib.dump(model_new,"model_new.pkl")
+
+import joblib
+from sklearn.metrics import mean_squared_error, r2_score
+
+
+model_new = joblib.load("model_new.pkl")
+
+y_pred_new=model_new.predict(X_test_new)
+mse = mean_squared_error(y_test_new,y_pred_new)
+r_score = r2_score(y_test_new,y_pred_new)
+rmse = np.sqrt(mean_squared_error(y_test_new,y_pred_new))
+print(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
+
+with open('metrics.txt','w') as outfile:
+  outfile.write(f'\nR^2={r_score}\nMean Square Error={mse}\nRoot Mean Square Error={rmse}.')
 print("before clean", df.shape[0])
 print("after clean", df_cleaned.shape[0])
 print("before clean", X.shape[0])
